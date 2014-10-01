@@ -8,10 +8,10 @@ invalid_strings = [u"ABC 💩 XYZ",
                    u"ddd✈️Bbb",
                    u"ABC ABC"]
 
-p = re.compile(u"[A-Z][A-Z][A-Z](\\s*)✈️(\\s*)[A-Z][A-Z][A-Z]")
+p = re.compile(ur"[A-Z]{3,3}(\s*?)✈️(\s*?)[A-Z]{3,3}")
 
 for s in valid_strings:
-    print s, p.match(s)
+    print s, bool(p.match(s))
 
 for s in invalid_strings:
-    print s, p.match(s)
+    print s, bool(p.match(s))
